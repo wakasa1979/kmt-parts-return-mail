@@ -270,10 +270,9 @@ class ReturnMailApp:
 
         if action == "queue":
             sheets_client.add_to_send_queue(mail_type, mail_date, y2, y5)
-            sheets_client.add_history_record(mail_type, mail_date, y2, y5)
             self.root.after(0, lambda: messagebox.showinfo(
                 "送信予約完了",
-                f"翌朝8:56に自動送信されるよう予約しました。（対象日: {mail_date}）"
+                f"翌朝7:00に自動送信されるよう予約しました。（対象日: {mail_date}）"
             ))
             return
 

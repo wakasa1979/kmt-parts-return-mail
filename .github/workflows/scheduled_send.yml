@@ -2,8 +2,12 @@ name: Scheduled Send
 
 on:
   schedule:
-    # 毎日 UTC 23:56 = JST 翌8:56
-    - cron: '56 23 * * *'
+    # 毎日 UTC 22:00 = JST 7:00
+    # 外部cronサービス(cron-job.org等)からのrepository_dispatchが正常系。
+    # これはGitHub Actions自体の遅延対策としてのバックアップ。
+    - cron: '0 22 * * *'
+  repository_dispatch:
+    types: [scheduled-send]
   workflow_dispatch: {}
 
 jobs:
